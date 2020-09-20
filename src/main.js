@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import ActionCableVue from 'actioncable-vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -14,6 +15,12 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(GSignInButton)
 Vue.use(VueAxios, axiosInstance)
+Vue.use(ActionCableVue, {
+  debug: true,
+  debugLevel: 'error',
+  connectionUrl: 'ws://localhost:3000/cable',
+  connectImmediately: true
+})
 
 new Vue({
   router,
