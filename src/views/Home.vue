@@ -15,6 +15,7 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
+import router from '../router'
 
 export default {
   name: 'Home',
@@ -29,8 +30,9 @@ export default {
     onSignInSuccess (googleUser) {
       this.axios.post('/sessions', {
         token: googleUser.getAuthResponse(true).id_token
-      }).then(function (response) {
+      }, { withCredentials: true }).then(function (response) {
         console.log(response)
+        router.push({ name: 'Chatroom', params: { id: '1' } })
       }).catch(function (error) {
         console.log(error)
       })

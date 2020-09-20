@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <NavBar></NavBar>
-    <div>
+    <div class="mt-4">
       <router-view class="first-level mx-auto" />
     </div>
   </div>
